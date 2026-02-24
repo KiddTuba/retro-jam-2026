@@ -86,7 +86,7 @@
             -webkit-text-fill-color: #001133;
         }
 
-        /* Print Styles - Ultra strict 1-page layout, Times New Roman Body, Fancy B&W Titles */
+        /* Print Styles */
         @media print {
             @page { margin: 0.25in 0.4in; size: letter portrait; }
             * {
@@ -111,14 +111,12 @@
                 margin: 0 !important;
                 display: block !important;
             }
-            /* Fancy headers kept black and white */
             .robocop-text, .font-black {
                 font-family: 'Black Ops One', cursive !important;
                 -webkit-text-fill-color: black !important;
                 color: black !important;
                 background: none !important;
             }
-            /* Structure compression to fit one page */
             .cyber-border, .bg-blue-950\/60, .bg-blue-900\/20 {
                 border: 1px solid #000 !important;
                 margin-bottom: 4px !important;
@@ -133,21 +131,17 @@
             header { margin-bottom: 6px !important; margin-top: 0 !important; }
             section { page-break-inside: avoid !important; }
             
-            /* Tighten headings */
             h1 { font-size: 20pt !important; margin: 0 !important; line-height: 1 !important; }
             h2 { font-size: 13pt !important; margin: 2px 0 2px 0 !important; border-bottom: 1px solid black !important; padding-bottom: 2px !important; text-transform: uppercase !important; }
             h3 { font-size: 11pt !important; margin: 0 0 2px 0 !important; font-family: 'Times New Roman', Times, serif !important; font-weight: bold !important; text-transform: uppercase !important; }
             
-            /* Tighten lists and text */
             ul { margin: 0 !important; padding: 0 !important; list-style: none !important; }
             li { font-size: 10.5pt !important; margin-bottom: 1px !important; }
             p, div { font-size: 10pt !important; margin-bottom: 2px !important; }
             
-            /* Roster Formatting */
             .grid { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 6px !important; }
             .grid div { display: inline-block !important; margin-right: 6px !important; font-size: 9.5pt !important; font-weight: bold !important; }
             
-            /* Remove margins from spacing utility classes */
             .gap-8, .gap-6, .gap-4 { gap: 0 !important; }
             .mt-8, .mb-8, .my-8 { margin-top: 2px !important; margin-bottom: 2px !important; }
             .mt-6, .mb-6 { margin-top: 2px !important; margin-bottom: 2px !important; }
@@ -156,7 +150,6 @@
             .space-y-4 > * + * { margin-top: 1px !important; }
             .space-y-3 > * + * { margin-top: 1px !important; }
             
-            /* Simple black divider */
             .h-1.bg-gradient-to-r { background: black !important; height: 1px !important; margin: 4px 0 !important; display: block !important; width: 100% !important; }
             
             a { text-decoration: none !important; color: black !important; }
@@ -170,7 +163,6 @@
 
     <main class="w-full max-w-4xl relative z-10 flex flex-col gap-6">
         
-        <!-- HEADER -->
         <header class="text-center mt-6 sm:mt-8">
             <h2 class="text-blue-300 tracking-widest text-sm sm:text-lg mb-1 font-bold uppercase">
                 Okeene Public Schools Proudly Presents
@@ -188,7 +180,6 @@
             <h2 class="robocop-text text-2xl sm:text-3xl tracking-widest mt-2">Program</h2>
         </header>
 
-        <!-- ACT ONE -->
         <section class="cyber-border p-4 sm:p-8 rounded-lg">
             <h2 class="robocop-text text-2xl sm:text-3xl text-center mb-4">Act One</h2>
             <ul class="text-center space-y-2 sm:space-y-3 text-base sm:text-lg font-bold tracking-wide">
@@ -203,11 +194,9 @@
             </ul>
         </section>
 
-        <!-- INTERMISSION / ROSTER -->
         <section class="cyber-border p-4 sm:p-8 rounded-lg text-center bg-blue-900/20">
             <p class="text-blue-300 italic mb-6 text-base font-bold">--- A Short Break in the Action ---</p>
             
-            <!-- Champion of the World -->
             <div class="mb-6 p-3 border border-blue-500 rounded bg-blue-950/40">
                 <h2 class="robocop-text text-xl sm:text-2xl mb-2 text-yellow-400">CHAMPION OF THE WORLD!!!</h2>
                 <div class="text-blue-300 text-xs sm:text-sm mb-2 tracking-widest font-bold">
@@ -218,7 +207,6 @@
                 </div>
             </div>
 
-            <!-- Former Champions -->
             <h3 class="robocop-text text-lg sm:text-xl mb-4 text-blue-200">Former Champions of the World</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm sm:text-base font-bold">
                 <div>Cotton Williams</div>
@@ -229,7 +217,6 @@
             </div>
         </section>
 
-        <!-- ACT TWO -->
         <section class="cyber-border p-4 sm:p-8 rounded-lg">
             <h2 class="robocop-text text-2xl sm:text-3xl text-center mb-4">Act Two</h2>
             <ul class="text-center space-y-2 sm:space-y-3 text-base sm:text-lg font-bold tracking-wide">
@@ -241,10 +228,8 @@
             </ul>
         </section>
 
-        <!-- ANNOUNCEMENTS & THANK YOUS -->
         <section class="text-center space-y-4 pb-8">
             
-            <!-- Thanks & Recognition -->
             <div class="px-4 text-sm sm:text-base leading-relaxed text-blue-100 cyber-border">
                 <div class="mb-4">
                     <h3 class="robocop-text text-xl mb-2">Thanks</h3>
@@ -276,7 +261,6 @@
                 </p>
             </div>
 
-            <!-- Print/Share Actions (Hidden on print) -->
             <div class="no-print flex flex-col items-center gap-4 mt-8">
                 <div class="flex flex-wrap justify-center gap-4">
                     <button onclick="window.print()" class="action-btn px-8 py-3 rounded text-xl uppercase tracking-wider">
@@ -291,7 +275,6 @@
         </section>
     </main>
 
-    <!-- QR Code Modal (Hidden by default, hidden on print) -->
     <div id="qr-modal" class="no-print hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
         <div class="cyber-border p-8 rounded-lg text-center max-w-sm w-full bg-[#001133]">
             <h3 class="robocop-text text-2xl mb-4">SCAN TO SHARE</h3>
@@ -306,10 +289,10 @@
     <script>
         // Generate QR code based on the current URL when the page loads
         window.onload = function() {
-            // Get the current URL. If running in a local blob/preview, use a placeholder or the intended github link
+            // Get the current URL. If running in a local blob/preview, use a placeholder
             let currentUrl = window.location.href;
             if (currentUrl.startsWith('blob:') || currentUrl.startsWith('about:')) {
-                currentUrl = "https://okeenepublicschools.edu"; // Fallback for the preview window
+                currentUrl = "https://okeenepublicschools.edu"; 
             }
 
             new QRCode(document.getElementById("qrcode"), {

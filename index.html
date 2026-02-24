@@ -86,60 +86,74 @@
             -webkit-text-fill-color: #001133;
         }
 
-        /* Print Styles - Ultra strict 1-page B&W Times New Roman */
+        /* Print Styles - Ultra strict 1-page layout, Times New Roman Body, Fancy B&W Titles */
         @media print {
-            @page { margin: 0.5in; }
+            @page { margin: 0.3in 0.5in; size: letter portrait; }
             * {
-                font-family: 'Times New Roman', Times, serif !important;
                 color: black !important;
                 background: transparent !important;
                 box-shadow: none !important;
                 text-shadow: none !important;
                 filter: none !important;
-                border: none !important;
             }
             body {
+                font-family: 'Times New Roman', Times, serif !important;
                 background: white !important;
                 font-size: 11pt !important;
-                line-height: 1.15 !important;
+                line-height: 1.1 !important;
             }
-            .grid-bg, .crt::before, .no-print, .h-1 {
+            .grid-bg, .crt::before, .no-print {
                 display: none !important;
             }
             main {
                 max-width: 100% !important;
                 padding: 0 !important;
                 margin: 0 !important;
-                gap: 0 !important;
                 display: block !important;
             }
-            header, section {
-                margin-bottom: 12px !important;
-                padding: 0 !important;
-                page-break-inside: avoid !important;
+            /* Override for the fancy text to remain fancy but black */
+            .robocop-text, .font-black {
+                font-family: 'Black Ops One', cursive !important;
+                -webkit-text-fill-color: black !important;
+                color: black !important;
+                background: none !important;
             }
-            .print-page-break {
-                page-break-before: auto !important;
+            /* Structure compression to fit one page */
+            .cyber-border, .bg-blue-950\/60, .bg-blue-900\/20 {
+                border: 1px solid #000 !important;
+                margin-bottom: 6px !important;
+                padding: 6px 10px !important;
+                border-radius: 4px !important;
             }
+            header { margin-bottom: 10px !important; margin-top: 0 !important; }
+            section { page-break-inside: avoid !important; }
+            
             /* Tighten headings */
-            h1 { font-size: 20pt !important; margin: 0 0 2px 0 !important; line-height: 1 !important; font-weight: bold !important; }
-            h2 { font-size: 14pt !important; margin: 4px 0 !important; font-weight: bold !important; border-bottom: 1px solid black !important; padding-bottom: 2px !important; text-transform: uppercase !important; }
-            h3 { font-size: 12pt !important; margin: 0 0 4px 0 !important; font-weight: bold !important;}
+            h1 { font-size: 22pt !important; margin: 0 !important; line-height: 1 !important; }
+            h2 { font-size: 14pt !important; margin: 2px 0 4px 0 !important; border-bottom: 1px solid black !important; padding-bottom: 2px !important; text-transform: uppercase !important; }
+            h3 { font-size: 11pt !important; margin: 0 0 4px 0 !important; font-family: 'Times New Roman', Times, serif !important; }
             
             /* Tighten lists and text */
             ul { margin: 0 !important; padding: 0 !important; list-style: none !important; }
-            li { font-size: 11pt !important; margin-bottom: 1px !important; }
-            p, div { font-size: 11pt !important; margin-bottom: 2px !important; }
+            li { font-size: 10.5pt !important; margin-bottom: 2px !important; }
+            p, div { font-size: 10.5pt !important; margin-bottom: 2px !important; }
             
-            /* Formatting specific sections for space */
-            .grid { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 6px !important; }
-            .grid div { display: inline-block !important; margin-right: 8px !important; }
-            .italic { font-style: italic !important; }
-            .font-bold, strong { font-weight: bold !important; }
-            .uppercase { text-transform: uppercase !important; }
+            /* Roster Formatting */
+            .grid { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 8px !important; }
+            .grid div { display: inline-block !important; margin-right: 8px !important; font-size: 10pt !important; font-weight: bold !important; }
             
-            /* Ensure links are plain text */
+            /* Remove margins from spacing utility classes */
+            .gap-8 { gap: 0 !important; }
+            .mt-8, .mb-8, .my-8 { margin-top: 4px !important; margin-bottom: 4px !important; }
+            .pb-12 { padding-bottom: 0 !important; }
+            .space-y-8 > * + * { margin-top: 6px !important; }
+            .space-y-4 > * + * { margin-top: 2px !important; }
+            
+            /* Simple black divider */
+            .h-1.bg-gradient-to-r { background: black !important; height: 1px !important; margin: 6px 0 !important; display: block !important; width: 100% !important; }
+            
             a { text-decoration: none !important; color: black !important; }
+            strong { font-weight: bold !important; }
         }
     </style>
 </head>
@@ -183,7 +197,7 @@
 
         <!-- INTERMISSION / ROSTER -->
         <section class="cyber-border p-6 sm:p-10 rounded-lg text-center bg-blue-900/20">
-            <p class="text-blue-300 italic mb-8 text-lg">--- A short break in the action ---</p>
+            <p class="text-blue-300 italic mb-8 text-lg font-bold">--- (INTERMISSION) A short break in the action ---</p>
             
             <h2 class="robocop-text text-2xl sm:text-3xl mb-6">CHAMPIONS OF THE WORLD!!!</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg sm:text-xl font-bold mb-8">
@@ -205,7 +219,7 @@
         </section>
 
         <!-- ACT TWO -->
-        <section class="cyber-border p-6 sm:p-10 rounded-lg print-page-break">
+        <section class="cyber-border p-6 sm:p-10 rounded-lg">
             <h2 class="robocop-text text-3xl sm:text-4xl text-center mb-6">ACT TWO</h2>
             <ul class="text-center space-y-3 sm:space-y-4 text-lg sm:text-xl font-bold tracking-wide">
                 <li class="text-white text-xl sm:text-2xl" style="font-family: 'Black Ops One', cursive;">ULTRA INSTINCT</li>
@@ -232,7 +246,7 @@
             </div>
 
             <!-- Thank Yous -->
-            <div class="px-4 text-sm sm:text-base leading-relaxed text-blue-100">
+            <div class="px-4 text-sm sm:text-base leading-relaxed text-blue-100 cyber-border">
                 <p class="mb-4">
                     <strong>SPECIAL THANKS TO:</strong><br>
                     Our amazing families, relentless supporters, the Okeene Administration, and the School Board.

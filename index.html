@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETRO JAM 2026 - Okeene 5th & 6th Grade Bands</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        :root {
+            --blue: #0055ff;
+            --white: #ffffff;
+            --dark-blue: #001133;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: #020205;
+            color: #d0e0ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 80s Grid Background */
+        .grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(0, 85, 255, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 85, 255, 0.15) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            transform: perspective(500px) rotateX(20deg);
+            transform-origin: bottom;
+        }
+
+        /* CRT Scanline Effect */
+        .crt::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 50;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        /* Robocop Metallic Gradient Text */
+        .robocop-text {
+            font-family: 'Black Ops One', cursive;
+            background: linear-gradient(to bottom, #ffffff 0%, #a0c4ff 45%, #0055ff 55%, #001155 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 0px 5px rgba(0, 85, 255, 0.8));
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        /* UI Elements */
+        .cyber-border {
+            border: 2px solid var(--blue);
+            box-shadow: 0 0 10px rgba(0, 85, 255, 0.5), inset 0 0 10px rgba(0, 85, 255, 0.3);
+            background: rgba(0, 17, 51, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .action-btn {
+            background: linear-gradient(90deg, #002288, #0055ff);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            font-family: 'Black Ops One', cursive;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(90deg, #0055ff, #a0c4ff);
+            box-shadow: 0 0 15px var(--blue);
+            transform: scale(1.05);
+            -webkit-text-fill-color: #001133;
+        }
+
+        /* Print Styles - Removes dark theme, saves ink, ensures clean PDF */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .grid-bg, .crt::before, .no-print {
+                display: none !important;
+            }
+            .cyber-border {
+                border: 2px solid #0033aa !important;
+                box-shadow: none !important;
+                background: white !important;
+                color: black !important;
+            }
+            .robocop-text {
+                background: none !important;
+                -webkit-text-fill-color: #002288 !important;
+                text-shadow: none !important;
+                filter: none !important;
+            }
+            .text-blue-300, .text-blue-400 {
+                color: #0033aa !important;
+            }
+            .text-white {
+                color: black !important;
+            }
+            /* Adjust layout for print */
+            .print-page-break {
+                page-break-before: always;
+            }
+            main {
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body class="crt min-h-screen relative flex flex-col items-center p-4 sm:p-8">
+    
+    <div class="grid-bg"></div>
+
+    <main class="w-full max-w-4xl relative z-10 flex flex-col gap-8">
+        
+        <!-- HEADER -->
+        <header class="text-center mt-8 sm:mt-12">
+            <h2 class="text-blue-300 tracking-widest text-sm sm:text-lg mb-2 font-bold uppercase">
+                Okeene Public Schools Proudly Presents
+            </h2>
+            <h3 class="text-white tracking-wider text-xs sm:text-md mb-6 uppercase">
+                The 5th and 6th Grade Bands In
+            </h3>
+            <h1 class="robocop-text text-5xl sm:text-7xl md:text-8xl font-black mb-4 tracking-tighter">
+                RETRO JAM
+            </h1>
+            <h1 class="robocop-text text-4xl sm:text-6xl md:text-7xl font-black">
+                2026
+            </h1>
+            <div class="w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mt-8"></div>
+        </header>
+
+        <!-- ACT ONE -->
+        <section class="cyber-border p-6 sm:p-10 rounded-lg">
+            <h2 class="robocop-text text-3xl sm:text-4xl text-center mb-6">ACT ONE</h2>
+            <ul class="text-center space-y-3 sm:space-y-4 text-lg sm:text-xl font-bold tracking-wide">
+                <li>Affirmation Song</li>
+                <li>B-Flat Scale Warmup Exercise</li>
+                <li>Mary Had A Little Lamb</li>
+                <li>Old McDonald</li>
+                <li>Bluey Theme Song</li>
+                <li>Jingle Bells</li>
+                <li>Go Big Blue</li>
+                <li>Fight Song</li>
+            </ul>
+        </section>
+
+        <!-- INTERMISSION / ROSTER -->
+        <section class="cyber-border p-6 sm:p-10 rounded-lg text-center bg-blue-900/20">
+            <p class="text-blue-300 italic mb-8 text-lg">--- A short break in the action ---</p>
+            
+            <h2 class="robocop-text text-2xl sm:text-3xl mb-6">CHAMPIONS OF THE WORLD!!!</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg sm:text-xl font-bold mb-8">
+                <div>Cotton Williams</div>
+                <div>Kinslee Gifford</div>
+                <div>Dalary Lopez</div>
+                <div>Violet Johannesmeyer</div>
+                <div>Josue Chacon Jaquez</div>
+            </div>
+            
+            <div class="mt-8 p-4 border border-blue-500 rounded bg-blue-950/40">
+                <div class="text-2xl sm:text-3xl font-black text-white tracking-widest mb-2 uppercase" style="font-family: 'Black Ops One', cursive;">
+                    Porter Anthony
+                </div>
+                <div class="text-blue-300 text-sm sm:text-base uppercase tracking-widest">
+                    The Current, Reigning, Defending, Undisputed Champion of the World
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT TWO -->
+        <section class="cyber-border p-6 sm:p-10 rounded-lg print-page-break">
+            <h2 class="robocop-text text-3xl sm:text-4xl text-center mb-6">ACT TWO</h2>
+            <ul class="text-center space-y-3 sm:space-y-4 text-lg sm:text-xl font-bold tracking-wide">
+                <li class="text-white text-xl sm:text-2xl" style="font-family: 'Black Ops One', cursive;">ULTRA INSTINCT</li>
+                <li>Soda Pop</li>
+                <li>All the Small Things</li>
+                <li>Fight Song</li>
+                <li>Can You Feel It</li>
+            </ul>
+        </section>
+
+        <!-- ANNOUNCEMENTS & THANK YOUS -->
+        <section class="text-center space-y-8 mt-8 pb-12">
+            
+            <!-- Fundraiser -->
+            <div class="cyber-border p-6 rounded-lg bg-blue-950/60">
+                <h3 class="robocop-text text-2xl mb-4">SUPPORT OUR BAND!</h3>
+                <p class="mb-4">We have an ongoing fundraiser to keep the music alive!</p>
+                <a href="https://crstore.biz/52494" target="_blank" class="text-blue-400 hover:text-white underline text-xl break-all">
+                    crstore.biz/52494
+                </a>
+                <p class="mt-4 text-sm text-blue-200">
+                    * Be sure to credit your favorite band kiddo so they can get prizes! *
+                </p>
+            </div>
+
+            <!-- Thank Yous -->
+            <div class="px-4 text-sm sm:text-base leading-relaxed text-blue-100">
+                <p class="mb-4">
+                    <strong>SPECIAL THANKS TO:</strong><br>
+                    Our amazing families, relentless supporters, the Okeene Administration, and the School Board.
+                </p>
+                <p class="mb-6">
+                    A massive thank you to Mr. Woolley, Ms. Haworth, Mrs. Feely, and Mr. Steuart for your continued dedication to our students.
+                </p>
+                <p class="text-lg font-bold text-white border-t border-b border-blue-800 py-3 inline-block px-8">
+                    Prayers for Colton Cottrill and family.
+                </p>
+            </div>
+
+            <!-- Print/Share Actions (Hidden on print) -->
+            <div class="no-print flex flex-col items-center gap-6 mt-12">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="window.print()" class="action-btn px-8 py-3 rounded text-xl uppercase tracking-wider">
+                        Print / Save PDF
+                    </button>
+                    <button onclick="document.getElementById('qr-modal').classList.remove('hidden')" class="action-btn px-8 py-3 rounded text-xl uppercase tracking-wider">
+                        Share Link (QR)
+                    </button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- QR Code Modal (Hidden by default, hidden on print) -->
+    <div id="qr-modal" class="no-print hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="cyber-border p-8 rounded-lg text-center max-w-sm w-full bg-[#001133]">
+            <h3 class="robocop-text text-2xl mb-4">SCAN TO SHARE</h3>
+            <div id="qrcode" class="bg-white p-4 rounded inline-block mb-6"></div>
+            <p class="text-sm text-blue-300 mb-6">Scan with your phone's camera to open this program.</p>
+            <button onclick="document.getElementById('qr-modal').classList.add('hidden')" class="action-btn px-6 py-2 rounded uppercase">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Generate QR code based on the current URL when the page loads
+        window.onload = function() {
+            // Get the current URL. If running in a local blob/preview, use a placeholder or the intended github link
+            let currentUrl = window.location.href;
+            if (currentUrl.startsWith('blob:') || currentUrl.startsWith('about:')) {
+                currentUrl = "https://okeenepublicschools.edu"; // Fallback for the preview window
+            }
+
+            new QRCode(document.getElementById("qrcode"), {
+                text: currentUrl,
+                width: 200,
+                height: 200,
+                colorDark : "#001133",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        };
+    </script>
+</body>
+</html>

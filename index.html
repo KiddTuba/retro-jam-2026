@@ -86,42 +86,60 @@
             -webkit-text-fill-color: #001133;
         }
 
-        /* Print Styles - Removes dark theme, saves ink, ensures clean PDF */
+        /* Print Styles - Ultra strict 1-page B&W Times New Roman */
         @media print {
-            body {
-                background: white !important;
+            @page { margin: 0.5in; }
+            * {
+                font-family: 'Times New Roman', Times, serif !important;
                 color: black !important;
-            }
-            .grid-bg, .crt::before, .no-print {
-                display: none !important;
-            }
-            .cyber-border {
-                border: 2px solid #0033aa !important;
+                background: transparent !important;
                 box-shadow: none !important;
-                background: white !important;
-                color: black !important;
-            }
-            .robocop-text {
-                background: none !important;
-                -webkit-text-fill-color: #002288 !important;
                 text-shadow: none !important;
                 filter: none !important;
+                border: none !important;
             }
-            .text-blue-300, .text-blue-400 {
-                color: #0033aa !important;
+            body {
+                background: white !important;
+                font-size: 11pt !important;
+                line-height: 1.15 !important;
             }
-            .text-white {
-                color: black !important;
-            }
-            /* Adjust layout for print */
-            .print-page-break {
-                page-break-before: always;
+            .grid-bg, .crt::before, .no-print, .h-1 {
+                display: none !important;
             }
             main {
+                max-width: 100% !important;
                 padding: 0 !important;
                 margin: 0 !important;
-                max-width: 100% !important;
+                gap: 0 !important;
+                display: block !important;
             }
+            header, section {
+                margin-bottom: 12px !important;
+                padding: 0 !important;
+                page-break-inside: avoid !important;
+            }
+            .print-page-break {
+                page-break-before: auto !important;
+            }
+            /* Tighten headings */
+            h1 { font-size: 20pt !important; margin: 0 0 2px 0 !important; line-height: 1 !important; font-weight: bold !important; }
+            h2 { font-size: 14pt !important; margin: 4px 0 !important; font-weight: bold !important; border-bottom: 1px solid black !important; padding-bottom: 2px !important; text-transform: uppercase !important; }
+            h3 { font-size: 12pt !important; margin: 0 0 4px 0 !important; font-weight: bold !important;}
+            
+            /* Tighten lists and text */
+            ul { margin: 0 !important; padding: 0 !important; list-style: none !important; }
+            li { font-size: 11pt !important; margin-bottom: 1px !important; }
+            p, div { font-size: 11pt !important; margin-bottom: 2px !important; }
+            
+            /* Formatting specific sections for space */
+            .grid { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 6px !important; }
+            .grid div { display: inline-block !important; margin-right: 8px !important; }
+            .italic { font-style: italic !important; }
+            .font-bold, strong { font-weight: bold !important; }
+            .uppercase { text-transform: uppercase !important; }
+            
+            /* Ensure links are plain text */
+            a { text-decoration: none !important; color: black !important; }
         }
     </style>
 </head>
@@ -219,9 +237,13 @@
                     <strong>SPECIAL THANKS TO:</strong><br>
                     Our amazing families, relentless supporters, the Okeene Administration, and the School Board.
                 </p>
-                <p class="mb-6">
-                    A massive thank you to Mr. Woolley, Ms. Haworth, Mrs. Feely, and Mr. Steuart for your continued dedication to our students.
-                </p>
+                <div class="mb-6 space-y-1">
+                    <p class="mb-2"><strong>A massive thank you to our incredible team:</strong></p>
+                    <p><strong>Ms. Haworth</strong> - 5th Grade</p>
+                    <p><strong>Mr. Woolley</strong> - 6th Grade</p>
+                    <p><strong>Mrs. Feely</strong> - Technical Director</p>
+                    <p><strong>Mr. Steuart</strong> - Fairview Band Director, Guest of the Night, Percussion Expert, and Quality Control</p>
+                </div>
                 <p class="text-lg font-bold text-white border-t border-b border-blue-800 py-3 inline-block px-8">
                     Prayers for Colton Cottrill and family.
                 </p>
